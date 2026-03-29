@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بوابة مدرسة الفريق علي جاد الرسمية لغات | تصميم آدم علي سامي</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #4b0082; /* الأرجواني الملكي */
+            --accent: #ffbd59;  /* الذهبي */
+            --orange: #ff7f50;  /* البرتقالي للأخبار */
+            --glass-dark: rgba(0, 0, 0, 0.8); 
+            --glass-light: rgba(255, 255, 255, 0.9);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Cairo', sans-serif; scroll-behavior: smooth; }
+        
+        body { 
+            background: linear-gradient(var(--glass-dark), var(--glass-dark)), 
+                        url('image_1.png') no-repeat center center fixed;
+            background-size: cover;
+            color: #f0f0f0; 
+            overflow-x: hidden;
+        }
+
+        /* 1. Navbar */
+        nav {
+            background: var(--primary); padding: 10px 5%; display: flex; justify-content: space-between;
+            align-items: center; position: fixed; width: 100%; top: 0; z-index: 2000; box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+        }
+        .logo { color: white; font-weight: 900; font-size: 1.1rem; display: flex; align-items: center; gap: 10px; }
+        nav ul { display: flex; list-style: none; gap: 10px; flex-wrap: wrap; }
+        nav a { color: white; text-decoration: none; font-size: 0.75rem; font-weight: bold; padding: 5px 10px; transition: 0.3s; border-radius: 5px; }
+        nav a:hover { background: var(--accent); color: var(--primary); }
+
+        /* General Section Layout */
+        section { padding: 80px 8%; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .sec-header { text-align: center; margin-bottom: 50px; }
+        .sec-header h2 { color: var(--accent); font-size: 2.8rem; font-weight: 900; text-shadow: 2px 2px 5px #000; }
+
+        /* 2. Hero Section */
+        .hero {
+            height: 90vh; display: flex; flex-direction: column; 
+            justify-content: center; align-items: center; text-align: center; color: white;
+        }
+        .hero h1 { font-size: 4rem; margin-bottom: 15px; color: var(--accent); text-shadow: 3px 3px 15px rgba(0,0,0,0.8); }
+
+        /* 3. Stats Section */
+        .stats-wrap { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 20px; margin-top: -50px; }
+        .stat-card { background: var(--glass-light); padding: 30px; border-radius: 20px; text-align: center; min-width: 200px; border-bottom: 5px solid var(--orange); color: #333; transition: 0.3s; }
+        .stat-card:hover { transform: translateY(-10px); }
+        .stat-card h3 { font-size: 3rem; color: var(--primary); }
+
+        /* 4. Manager Section */
+        .manager-box { background: var(--glass-light); border-radius: 30px; display: flex; align-items: center; gap: 40px; padding: 40px; color: #333; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .manager-img { width: 150px; height: 150px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 4rem; color: white; border: 5px solid var(--accent); }
+
+        /* Grid Containers for 30 Sections */
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .box { background: var(--glass-light); padding: 30px; border-radius: 20px; color: #333; transition: 0.4s; }
+        .box:hover { background: var(--accent); }
+        .box h3 { color: var(--primary); margin-bottom: 10px; }
+
+        /* 8. Teachers Grid */
+        .teacher-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 20px; }
+        .t-card { background: var(--glass-light); padding: 25px; border-radius: 20px; text-align: center; color: #333; transition: 0.4s; }
+        .t-card:hover { background: var(--primary); color: white; transform: scale(1.05); }
+        .t-card i { font-size: 2.5rem; margin-bottom: 15px; color: var(--primary); }
+        .t-card:hover i { color: var(--accent); }
+
+        /* Contact Box */
+        .contact-box { background: var(--glass-light); padding: 45px; border-radius: 30px; color: #333; max-width: 800px; margin: 0 auto; }
+        input, textarea { width: 100%; padding: 15px; margin-bottom: 15px; border-radius: 12px; border: 1px solid #ccc; font-size: 1rem; }
+        .btn-send { width: 100%; background: var(--primary); color: white; padding: 18px; border: none; border-radius: 50px; cursor: pointer; font-weight: 900; font-size: 1.3rem; transition: 0.3s; }
+        .btn-send:hover { background: var(--orange); transform: scale(1.02); }
+
+        /* Footer */
+        footer { background: rgba(0,0,0,0.95); padding: 60px 10%; text-align: center; border-top: 5px solid var(--accent); }
+        .footer-achievements { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin: 20px 0; }
+        .badge { background: rgba(255,255,255,0.1); padding: 10px 20px; border-radius: 50px; border: 1px solid var(--accent); font-size: 0.9rem; color: var(--accent); }
+
+        @media (max-width: 768px) { .hero h1 { font-size: 2.5rem; } nav ul { display: none; } }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo"><i class="fas fa-school"></i> مدرسة الفريق علي جاد</div>
+        <ul>
+            <li><a href="#hero">الرئيسية</a></li>
+            <li><a href="#admin">المديرة</a></li>
+            <li><a href="#teachers">المعلمات</a></li>
+            <li><a href="#history">تاريخنا</a></li>
+            <li><a href="#facilities">المرافق</a></li>
+            <li><a href="#news">الأخبار</a></li>
+            <li><a href="#contact">تواصل</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero" id="hero">
+        <h1>مدرسة الفريق علي جاد الرسمية لغات</h1>
+        <p style="font-size: 1.6rem; color: #ccc; max-width: 800px;">نحو تعليم لغات عصري يجمع بين التكنولوجيا والقيم الأصيلة - سيدي بشر 2026</p>
+    </section>
+
+    <section class="stats">
+        <div class="stats-wrap">
+            <div class="stat-card"><h3>1850</h3><p>طالب مبدع</p></div>
+            <div class="stat-card"><h3>130</h3><p>معلم ومعلمة</p></div>
+            <div class="stat-card"><h3>45</h3><p>فصل دراسي</p></div>
+            <div class="stat-card"><h3>100%</h3><p>نسبة النجاح</p></div>
+        </div>
+    </section>
+
+    <section id="admin">
+        <div class="sec-header"><h2>إدارة مدرسة الفريق</h2></div>
+        <div class="manager-box">
+            <div class="manager-img"><i class="fas fa-user-tie"></i></div>
+            <div class="info">
+                <h3 style="color: var(--primary); font-size: 2rem;">أ/ أماني كاباري</h3>
+                <p style="font-weight: 900; color: var(--orange);">مديرة المدرسة</p>
+                <p style="margin-top: 15px; line-height: 1.8; font-size: 1.1rem;">"أهلاً بكم في صرحنا التعليمي. نحن هنا لنبني عقولاً تستطيع مواجهة المستقبل باللغات والعلوم والتكنولوجيا."</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="history">
+        <div class="sec-header"><h2>عن مدرسة الفريق علي جاد</h2></div>
+        <div class="grid-3">
+            <div class="box"><h3>من هو الفريق علي جاد؟</h3><p>قائد القوات البحرية المصرية الأسبق، بطل نعتز بحمل اسمه ليكون قدوة لطلابنا في الانضباط.</p></div>
+            <div class="box"><h3>رؤية 2026</h3><p>أن نصبح المدرسة الرسمية اللغات الأولى بالإسكندرية في استخدام الذكاء الاصطناعي في التعليم.</p></div>
+            <div class="box"><h3>رسالتنا</h3><p>توفير بيئة تعليمية آمنة ومحفزة تكتشف مواهب الطلاب المبرمجين والفنانين.</p></div>
+        </div>
+    </section>
+
+    <section id="teachers">
+        <div class="sec-header"><h2>نخبة معلمات المدرسة</h2></div>
+        <div class="teacher-grid" id="teacherGrid">
+            </div>
+    </section>
+
+    <section id="facilities">
+        <div class="sec-header"><h2>أقسام ومرافق المدرسة</h2></div>
+        <div class="grid-3">
+            <div class="box"><i class="fas fa-child fa-2x"></i><h3>رياض الأطفال KG</h3><p>تأسيس قوي بأحدث الوسائل التعليمية.</p></div>
+            <div class="box"><i class="fas fa-laptop-code fa-2x"></i><h3>معمل الحاسب</h3><p>تجهيزات كاملة لتعليم البرمجة والجرافيك.</p></div>
+            <div class="box"><i class="fas fa-flask fa-2x"></i><h3>معمل Science</h3><p>تجارب عملية تفاعلية لطلابنا.</p></div>
+            <div class="box"><i class="fas fa-paint-brush fa-2x"></i><h3>التربية الفنية</h3><p>تنمية الحس الفني والإبداعي.</p></div>
+            <div class="box"><i class="fas fa-music fa-2x"></i><h3>غرفة الموسيقى</h3><p>تعليم الآلات الموسيقية والكورال.</p></div>
+            <div class="box"><i class="fas fa-book fa-2x"></i><h3>المكتبة</h3><p>كنز من الكتب والمعرفة الورقية والرقمية.</p></div>
+        </div>
+    </section>
+
+    <section id="news" style="background: rgba(75,0,130,0.3);">
+        <div class="sec-header"><h2>أحدث الأخبار والفعاليات</h2></div>
+        <div class="grid-3">
+            <div class="box"><h3>مسابقة الإلقاء</h3><p>فوز طالبات المدرسة بالمركز الأول على مستوى الإدارة.</p></div>
+            <div class="box"><h3>معرض العلوم</h3><p>استقبال وفود تعليمية لمشاهدة اختراعات الطلاب.</p></div>
+            <div class="box"><h3>رحلات مدرسية</h3><p>انطلاق رحلة ترفيهية لطلاب المرحلة الابتدائية السبت القادم.</p></div>
+            <div class="box"><h3>تكريم أوائل الشهر</h3><p>حفل كبير لتكريم الطلاب المتفوقين في فناء المدرسة.</p></div>
+            <div class="box"><h3>نادي البرمجة</h3><p>بدء دورات البرمجة لطلاب الصفوف العليا.</p></div>
+            <div class="box"><h3>التطوير الإنشائي</h3><p>تجديد ملاعب المدرسة وطلاء الفصول بألوان مبهجة.</p></div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="sec-header"><h2>اتصل بنا مباشرة</h2></div>
+        <div class="contact-box">
+            <form action="https://formspree.io/f/mreopdva" method="POST">
+                <input type="text" name="الاسم" placeholder="اسمك الكامل" required>
+                <input type="email" name="الإيميل" placeholder="بريدك الإلكتروني" required>
+                <textarea name="الرسالة" rows="5" placeholder="اكتب رسالتك للمديرة أماني كاباري..." required></textarea>
+                <button type="submit" class="btn-send">إرسال الرسالة الآن <i class="fas fa-paper-plane"></i></button>
+            </form>
+            <div style="margin-top:25px; text-align:center;">
+                <p><i class="fas fa-map-marker-alt"></i> سيدي بشر قبلي - أمام حي المنتزه - الإسكندرية</p>
+                <p><i class="fas fa-phone"></i> تليفون المدرسة: 01222496619</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <h3 style="color: var(--accent); margin-bottom: 20px;">تم التصميم بواسطة مبرمج الإسكندرية المبدع: آدم علي سامي</h3>
+        <div class="footer-achievements">
+            <span class="badge"><i class="fas fa-trophy"></i> المركز الثاني على مستوى مصر</span>
+            <span class="badge"><i class="fas fa-medal"></i> 3 ميداليات ذهبية</span>
+            <span class="badge"><i class="fas fa-award"></i> شهادة تقدير مبرمج متميز</span>
+            <span class="badge"><i class="fas fa-medal" style="color: silver;"></i> 1 ميدالية فضية</span>
+        </div>
+        <p style="margin-top: 20px;"><i class="fas fa-map-signs"></i> سيدي بشر قبلي - الإسكندرية</p>
+        <p style="font-size: 0.8rem; color: #777; margin-top: 40px;">جميع الحقوق محفوظة لمدرسة الفريق علي جاد © 2026</p>
+    </footer>
+
+    <script>
+        // مصفوفة المعلمات (الـ 21 معلمة كاملة)
+        const teachers = [
+            {n:"أ/ أماني كاباري", s:"مديرة المدرسة"}, {n:"أ/ إيمان صبري", s:"وكيلة المدرسة"},
+            {n:"أ/ مروة محمود", s:"اللغة العربية"}, {n:"أ/ نهى جابر", s:"اللغة الإنجليزية"},
+            {n:"أ/ عائشة السيد", s:"الرياضيات"}, {n:"أ/ دعاء كامل", s:"الدراسات"},
+            {n:"أ/ رنا خالد", s:"حاسب آلي"}, {n:"أ/ ميرفت علي", s:"Sciences"},
+            {n:"أ/ سارة مجدي", s:"تربية فنية"}, {n:"أ/ أميرة علي", s:"تربية رياضية"},
+            {n:"أ/ منال حسين", s:"رياض أطفال"}, {n:"أ/ نجلاء يوسف", s:"تربية دينية"},
+            {n:"أ/ هبة إبراهيم", s:"موسيقى"}, {n:"أ/ شيماء علي", s:"أخصائية اجتماعية"},
+            {n:"أ/ فاطمة حسن", s:"Math"}, {n:"أ/ ريهام محمد", s:"German"},
+            {n:"أ/ سماح محمود", s:"لغة فرنسية"}, {n:"أ/ نانسي أحمد", s:"اللغة الإنجليزية"},
+            {n:"أ/ ياسمين علي", s:"أخصائية مكتبة"}, {n:"أ/ زينب محمد", s:"اللغة العربية"},
+            {n:"أ/ داليا حسن", s:"Math"}
+        ];
+
+        const grid = document.getElementById('teacherGrid');
+        teachers.forEach(t => {
+            grid.innerHTML += `
+                <div class="t-card">
+                    <i class="fas fa-user-circle"></i>
+                    <h4>${t.n}</h4>
+                    <p style="font-weight:bold; font-size:0.9rem;">${t.s}</p>
+                </div>
+            `;
+        });
+    </script>
+</body>
+</html>
